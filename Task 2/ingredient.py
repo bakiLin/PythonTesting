@@ -1,9 +1,10 @@
+#(Б)акиев -> (Б)иг Мак
+
 class Ingredient:
-    def __init__(self, name, weight, raw_weight, cost):
-        self._name = name
-        self._weight = weight
-        self._raw_weight = raw_weight
-        self._cost = cost
+    def __init__(self, name, weight, price):
+        self.name = name
+        self.weight = weight
+        self.price = price
 
     @property
     def name(self):
@@ -26,21 +27,11 @@ class Ingredient:
         self._weight = weight
 
     @property
-    def raw_weight(self):
-        return self._raw_weight
+    def price(self):
+        return self._price
 
-    @raw_weight.setter
-    def raw_weight(self, weight):
-        if not isinstance(weight, (int, float)):
-            raise TypeError("Raw weight is not int")
-        self._weight = weight
-
-    @property
-    def cost(self):
-        return self._cost
-
-    @cost.setter
-    def cost(self, cost):
-        if not isinstance(cost, (int, float)):
+    @price.setter
+    def price(self, price):
+        if not isinstance(price, (int, float)):
             raise TypeError("Cost is not int")
-        self._cost = cost
+        self._price = price
