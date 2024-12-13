@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="content">Ингредиенты</h1>
+    <div class="content">
+        {% for ingredient in ingredients_list %}
+            <a href="{% url 'recipe_catalog:ingredient_edit' ingredient.id %}">{{ingredient.name}}</a>
+            <br><br>
+        {% endfor %}
+    </div>
+{% endblock %}

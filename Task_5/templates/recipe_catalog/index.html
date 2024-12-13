@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Наши Рецепты{% endblock %}
+{% block content %}
+    <h1 class="content">Главная страница</h1>
+    <h2 class="content">Рецепты</h2>
+    <div class="content">
+        {% for recipe in recipe_list %}
+            <a href="{% url 'recipe_catalog:recipe_detail' recipe.id %}">{{recipe.name}}</a>
+            <br><br>
+        {% endfor %}
+    </div>
+{% endblock %}
