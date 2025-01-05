@@ -1,0 +1,36 @@
+<html>
+<head>
+    <meta name="description" content="Описание страницы">
+    <link rel="icon" href="fav.ico" type="image">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}Site Title{% endblock %}</title>
+</head>
+<body>
+  <div>
+    {% block sidebar %}
+    <ul>
+      <li><a href="/">Главная</a></li>
+      <li><a href="/about/">О нас</a></li>
+      <br>
+      <li><a href="/add_ingredient/">Добавить ингредиент</a></li>
+      <li><a href="/all_ingredients/">Все ингредиенты</a></li>
+      <br>
+      <li><a href="/add_recipe/">Добавить рецепт</a></li>
+      <br>
+      {% if not user.is_authenticated %}
+        <li><a href="http://127.0.0.1:8000/auth/login/">Войти</a></li>
+      {% else %}
+        <li><a href="http://127.0.0.1:8000/auth/logout/">Выйти</a></li>
+      {% endif %}
+    </ul>
+    <p>Текущий пользователь: {{request.user}}</p>
+    {% endblock %}
+  </div>
+  <main>
+    <div>
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+</body>
+</html>
